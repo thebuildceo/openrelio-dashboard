@@ -1,12 +1,7 @@
 'use client';
 
 import { useEffect, useState, useCallback } from 'react';
-import {
-  TrendingDown,
-  Zap,
-  Percent,
-  Minimize2,
-} from 'lucide-react';
+import { TrendingDown, Zap, Percent, Minimize2 } from 'lucide-react';
 import { StatsCard } from '@/components/stats-card';
 import { SavingsChart } from '@/components/savings-chart';
 import { ModelPieChart } from '@/components/model-pie-chart';
@@ -44,12 +39,16 @@ export default function DashboardPage() {
     <div className="space-y-8">
       {/* Page Title */}
       <div className="space-y-3">
-        <h1 className="text-3xl font-bold text-white mb-2">OpenRelio Dashboard</h1>
+        <h1 className="text-3xl font-bold text-white mb-2">
+          OpenRelio Dashboard
+        </h1>
         <p className="text-zinc-400 max-w-2xl">
-          Live gateway metrics, cost savings, and intelligent model decisions for every request.
+          Live gateway metrics, cost savings, and intelligent model decisions
+          for every request.
         </p>
         <div className="rounded-2xl border border-zinc-800 bg-zinc-950/70 px-4 py-3 text-sm text-zinc-300">
-          Real-time savings insights with auto-routing and context compression enabled by OpenRelio.
+          Real-time savings insights with auto-routing and context compression
+          enabled by OpenRelio.
         </div>
       </div>
 
@@ -89,7 +88,9 @@ export default function DashboardPage() {
       <div className="grid grid-cols-3 gap-6">
         <div className="col-span-2">
           <div className="mb-4 flex items-center justify-between">
-            <h2 className="text-lg font-semibold text-white">Savings Over Time</h2>
+            <h2 className="text-lg font-semibold text-white">
+              Savings Over Time
+            </h2>
             <div className="space-x-2">
               {(['7d', '30d', '90d'] as const).map((p) => (
                 <button
@@ -113,7 +114,9 @@ export default function DashboardPage() {
 
       {/* Recent Requests */}
       <div>
-        <h2 className="text-lg font-semibold text-white mb-4">Recent Requests</h2>
+        <h2 className="text-lg font-semibold text-white mb-4">
+          Recent Requests
+        </h2>
         <RequestsTable requests={requests} isLoading={isLoading} />
       </div>
     </div>

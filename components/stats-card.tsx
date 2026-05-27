@@ -20,7 +20,9 @@ export function StatsCard({
   const accentBorder = iconColor.replace('text-', 'border-');
 
   return (
-    <div className={`bg-zinc-900 border border-zinc-800 rounded-lg p-6 border-l-4 ${accentBorder}`}>
+    <div
+      className={`bg-zinc-900 border border-zinc-800 rounded-lg p-6 border-l-4 ${accentBorder}`}
+    >
       <div className="flex items-start justify-between mb-4">
         <div>
           <p className="text-zinc-400 text-sm font-medium">{title}</p>

@@ -1,7 +1,15 @@
 'use client';
 
 import { useEffect, useState, useCallback } from 'react';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  ResponsiveContainer,
+} from 'recharts';
 import { StatsCard } from '@/components/stats-card';
 import { ComplexityBar } from '@/components/complexity-bar';
 import { TrendingUp, Zap } from 'lucide-react';
@@ -9,7 +17,9 @@ import * as api from '@/lib/api';
 import * as Types from '@/lib/types';
 
 export default function AnalyticsPage() {
-  const [period, setPeriod] = useState<'today' | 'week' | 'month' | 'all'>('today');
+  const [period, setPeriod] = useState<'today' | 'week' | 'month' | 'all'>(
+    'today'
+  );
   const [stats, setStats] = useState<Types.Stats | null>(null);
   const [summary, setSummary] = useState<Types.Summary | null>(null);
   const [chartData, setChartData] = useState<Types.ChartDataPoint[]>([]);
@@ -41,15 +51,17 @@ export default function AnalyticsPage() {
     return () => clearInterval(interval);
   }, [loadData]);
 
-  const currentPeriod = summary ? summary[
-    period === 'today'
-      ? 'today'
-      : period === 'week'
-        ? 'this_week'
-        : period === 'month'
-          ? 'all_time'
-          : 'all_time'
-  ] : { requests: 0, savings_usd: 0, tokens_saved: 0 };
+  const currentPeriod = summary
+    ? summary[
+        period === 'today'
+          ? 'today'
+          : period === 'week'
+            ? 'this_week'
+            : period === 'month'
+              ? 'all_time'
+              : 'all_time'
+      ]
+    : { requests: 0, savings_usd: 0, tokens_saved: 0 };
 
   return (
     <div className="space-y-8">
@@ -57,9 +69,12 @@ export default function AnalyticsPage() {
       <div className="space-y-4">
         <div className="flex items-center justify-between gap-4">
           <div>
-            <h1 className="text-3xl font-bold text-white mb-2">Analytics & Insights</h1>
+            <h1 className="text-3xl font-bold text-white mb-2">
+              Analytics & Insights
+            </h1>
             <p className="text-zinc-400 max-w-2xl">
-              Track OpenRelio savings, complexity trends, and model usage across your gateway.
+              Track OpenRelio savings, complexity trends, and model usage across
+              your gateway.
             </p>
           </div>
           <div className="space-x-2 flex flex-wrap">
@@ -79,7 +94,8 @@ export default function AnalyticsPage() {
           </div>
         </div>
         <div className="rounded-2xl border border-zinc-800 bg-zinc-950/70 px-4 py-3 text-sm text-zinc-300">
-          Data refreshes every 30 seconds for the latest OpenRelio performance metrics.
+          Data refreshes every 30 seconds for the latest OpenRelio performance
+          metrics.
         </div>
       </div>
 
@@ -120,7 +136,11 @@ export default function AnalyticsPage() {
             <ResponsiveContainer width="100%" height={300}>
               <BarChart data={chartData}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#27272a" />
-                <XAxis dataKey="date" stroke="#71717a" style={{ fontSize: '12px' }} />
+                <XAxis
+                  dataKey="date"
+                  stroke="#71717a"
+                  style={{ fontSize: '12px' }}
+                />
                 <YAxis stroke="#71717a" style={{ fontSize: '12px' }} />
                 <Tooltip
                   contentStyle={{
@@ -145,7 +165,11 @@ export default function AnalyticsPage() {
             <ResponsiveContainer width="100%" height={300}>
               <BarChart data={chartData}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#27272a" />
-                <XAxis dataKey="date" stroke="#71717a" style={{ fontSize: '12px' }} />
+                <XAxis
+                  dataKey="date"
+                  stroke="#71717a"
+                  style={{ fontSize: '12px' }}
+                />
                 <YAxis stroke="#71717a" style={{ fontSize: '12px' }} />
                 <Tooltip
                   contentStyle={{
@@ -162,7 +186,11 @@ export default function AnalyticsPage() {
       </div>
 
       {/* Complexity Breakdown */}
-      <ComplexityBar breakdown={stats?.complexity_breakdown ?? { SIMPLE: 0, MEDIUM: 0, COMPLEX: 0 }} />
+      <ComplexityBar
+        breakdown={
+          stats?.complexity_breakdown ?? { SIMPLE: 0, MEDIUM: 0, COMPLEX: 0 }
+        }
+      />
     </div>
   );
 }

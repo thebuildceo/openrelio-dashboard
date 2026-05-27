@@ -41,7 +41,8 @@ export async function getRequests(params?: {
     const url = new URL(`${BASE}/analytics/requests`);
     if (params?.limit) url.searchParams.set('limit', String(params.limit));
     if (params?.offset) url.searchParams.set('offset', String(params.offset));
-    if (params?.complexity) url.searchParams.set('complexity', params.complexity);
+    if (params?.complexity)
+      url.searchParams.set('complexity', params.complexity);
 
     const res = await fetch(url.toString(), { headers });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);

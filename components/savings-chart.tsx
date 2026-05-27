@@ -24,8 +24,12 @@ export function SavingsChart({ data }: SavingsChartProps) {
   if (isLoading) {
     return (
       <div className="w-full h-64 bg-zinc-900 border border-zinc-800 rounded-lg flex flex-col items-center justify-center">
-        <p className="text-zinc-500 text-sm font-medium">No savings history yet</p>
-        <p className="text-zinc-500 text-xs mt-2">Send traffic through OpenRelio to start tracking savings.</p>
+        <p className="text-zinc-500 text-sm font-medium">
+          No savings history yet
+        </p>
+        <p className="text-zinc-500 text-xs mt-2">
+          Send traffic through OpenRelio to start tracking savings.
+        </p>
       </div>
     );
   }

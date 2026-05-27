@@ -10,13 +10,19 @@ export default function SettingsPage() {
   const [showKey, setShowKey] = useState(false);
   const [autoRouting, setAutoRouting] = useState(false);
   const [compression, setCompression] = useState(false);
-  const [testStatus, setTestStatus] = useState<'idle' | 'loading' | 'success' | 'failed'>('idle');
-  const [saveStatus, setSaveStatus] = useState<'idle' | 'saving' | 'saved'>('idle');
+  const [testStatus, setTestStatus] = useState<
+    'idle' | 'loading' | 'success' | 'failed'
+  >('idle');
+  const [saveStatus, setSaveStatus] = useState<'idle' | 'saving' | 'saved'>(
+    'idle'
+  );
 
   useEffect(() => {
     // Load from localStorage
-    const savedUrl = localStorage.getItem('gatewayUrl') || process.env.NEXT_PUBLIC_GATEWAY_URL;
-    const savedKey = localStorage.getItem('adminKey') || process.env.NEXT_PUBLIC_ADMIN_KEY;
+    const savedUrl =
+      localStorage.getItem('gatewayUrl') || process.env.NEXT_PUBLIC_GATEWAY_URL;
+    const savedKey =
+      localStorage.getItem('adminKey') || process.env.NEXT_PUBLIC_ADMIN_KEY;
     const savedRouting = localStorage.getItem('autoRouting') === 'true';
     const savedCompression = localStorage.getItem('compression') === 'true';
 
@@ -63,9 +69,12 @@ export default function SettingsPage() {
     <div className="max-w-2xl space-y-8">
       {/* Page Title */}
       <div>
-        <h1 className="text-4xl font-semibold text-white mb-3">OpenRelio Settings</h1>
+        <h1 className="text-4xl font-semibold text-white mb-3">
+          OpenRelio Settings
+        </h1>
         <p className="max-w-2xl text-zinc-400 text-sm leading-7">
-          Manage gateway access, admin controls, and optimization preferences for your OpenRelio pipeline.
+          Manage gateway access, admin controls, and optimization preferences
+          for your OpenRelio pipeline.
         </p>
       </div>
 
@@ -154,9 +163,11 @@ export default function SettingsPage() {
                 autoRouting ? 'bg-indigo-600' : 'bg-zinc-700'
               }`}
             >
-              <span className={`absolute left-0.5 top-0.5 h-6 w-6 rounded-full bg-white shadow-sm transition-transform duration-200 ease-in-out ${
-                autoRouting ? 'translate-x-7' : 'translate-x-0'
-              }`} />
+              <span
+                className={`absolute left-0.5 top-0.5 h-6 w-6 rounded-full bg-white shadow-sm transition-transform duration-200 ease-in-out ${
+                  autoRouting ? 'translate-x-7' : 'translate-x-0'
+                }`}
+              />
             </button>
           </div>
 
@@ -173,9 +184,11 @@ export default function SettingsPage() {
                 compression ? 'bg-indigo-600' : 'bg-zinc-700'
               }`}
             >
-              <span className={`absolute left-0.5 top-0.5 h-6 w-6 rounded-full bg-white shadow-sm transition-transform duration-200 ease-in-out ${
-                compression ? 'translate-x-7' : 'translate-x-0'
-              }`} />
+              <span
+                className={`absolute left-0.5 top-0.5 h-6 w-6 rounded-full bg-white shadow-sm transition-transform duration-200 ease-in-out ${
+                  compression ? 'translate-x-7' : 'translate-x-0'
+                }`}
+              />
             </button>
           </div>
         </div>
@@ -236,7 +249,8 @@ export default function SettingsPage() {
       </div>
 
       <p className="text-xs text-zinc-500">
-        Settings are saved locally in your browser. For persistent storage, you'll need to connect to your OpenRelio account.
+        Settings are saved locally in your browser. For persistent storage,
+        you'll need to connect to your OpenRelio account.
       </p>
     </div>
   );

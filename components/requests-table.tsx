@@ -90,7 +90,10 @@ export function RequestsTable({ requests, isLoading }: RequestsTableProps) {
           </thead>
           <tbody className="divide-y divide-zinc-800">
             {requests.map((req) => (
-              <tr key={req.id} className="hover:bg-zinc-800/50 transition-colors">
+              <tr
+                key={req.id}
+                className="hover:bg-zinc-800/50 transition-colors"
+              >
                 <td className="px-6 py-4 text-sm text-zinc-300">
                   {formatDate(req.timestamp)}
                 </td>

@@ -1,7 +1,14 @@
 'use client';
 
 import { useMemo } from 'react';
-import { PieChart, Pie, Cell, Legend, ResponsiveContainer, Tooltip } from 'recharts';
+import {
+  PieChart,
+  Pie,
+  Cell,
+  Legend,
+  ResponsiveContainer,
+  Tooltip,
+} from 'recharts';
 
 interface ModelPieChartProps {
   modelBreakdown: Record<string, number>;
@@ -22,8 +29,12 @@ export function ModelPieChart({ modelBreakdown }: ModelPieChartProps) {
   if (isLoading) {
     return (
       <div className="bg-zinc-900 border border-zinc-800 rounded-lg p-6 flex flex-col items-center justify-center h-80">
-        <p className="text-zinc-500 text-sm font-medium">Model usage not available yet</p>
-        <p className="text-zinc-500 text-xs mt-2">Run a few requests and return to view OpenRelio model distribution.</p>
+        <p className="text-zinc-500 text-sm font-medium">
+          Model usage not available yet
+        </p>
+        <p className="text-zinc-500 text-xs mt-2">
+          Run a few requests and return to view OpenRelio model distribution.
+        </p>
       </div>
     );
   }
